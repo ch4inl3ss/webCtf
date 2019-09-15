@@ -1,13 +1,18 @@
 var http_util = require('./http_util');
 
-/* This method will show home page with welcome message. */
 exports.showHomePage = function buildHomePage(req, resp, error_message) {
 
     var page_title = "Home Page";
 
     var page_menu = http_util.pageMenu();
 
-    var page_content = "<h1>Welcome to user register and login home page.<br/>Click above link to take action.</h1>";
+    var page_content = `
+    <div class="container" style="width:30%; margin-top:50px;">
+    
+    <h1>Welcome to user register and login home page.<br/>Click above link to take action.</h1>
+
+    </div>
+    `;
 
     // Generate home page with page template and special title, menu and content.
     var page_data = http_util.buildPage(page_title, page_menu, page_content);

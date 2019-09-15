@@ -1,29 +1,12 @@
-/**
- * This is the dispatcher module for this example.
- *
- * It create a http web server and listen on port 8888.
- *
- * When client send request, it will dispatch the request to different module by request url path.
- */
-
 var http = require('http');
-
 var http_util = require('./http_util');
-
 var home_module = require('./home');
-
 var login_module = require('./login');
 var secret_module=require('./secretpage');
-
 var register_module = require('./register');
 
 var http_server_port = 3000;
 
-
-/* This is the callback function which will be used by http web server.
-*
-*  This function will process client request.
-* */
 var http_server_callback_function = function (req, resp) {
 
     // Parse query strings.
@@ -52,10 +35,6 @@ var http_server_callback_function = function (req, resp) {
     }
 }
 
-// Create a http web server use above callback function.
 var http_server = http.createServer(http_server_callback_function);
-
 http_server.listen(http_server_port);
-
-// Print log data in console.
 console.log('http server lisetning on port ' + http_server_port);
