@@ -6,9 +6,7 @@ exports.getUrlParams = function(req, resp){
    
    req.query_url = http_url.parse(req.url, true);
    req.user_name = req.query_url.username;
-   console.log(req.username);
    req.password = req.query_url.password;
-   console.log(req.password);
    req.email = req.query_url.email;
    req.mobile_phone = req.query_url.mobile_phone;
    req.home_phone = req.query_url.home_phone;

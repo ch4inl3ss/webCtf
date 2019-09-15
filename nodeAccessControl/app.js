@@ -9,13 +9,10 @@ var http_server_port = 3000;
 
 var http_server_callback_function = function (req, resp) {
 
-    // Parse query strings.
     http_util.getUrlParams(req, resp);
 
-    // Get request url path value.
     var url_path = req.query_url.pathname;
 
-    // Invoke different module's function by different request path.
     if (url_path === '/') {
         home_module.showHomePage(req, resp);
     } else if (url_path === '/login') {

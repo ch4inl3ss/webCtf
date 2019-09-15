@@ -11,7 +11,12 @@ exports.showSecretPage = function buildSecretPage(req, resp, error_message) {
 
         var page_menu = http_util.pageMenu();
 
-        var page_content = "<h1>You are successfully logged in...</h1>";
+        var page_content = 
+        `
+        <div class="container" style="width:30%; margin-top:50px;">
+        <h1>You are successfully logged in...</h1>
+        </div>
+        `;
 
         // Generate home page with page template and special title, menu and content.
         var page_data = http_util.buildPage(page_title, page_menu, page_content);
@@ -20,7 +25,7 @@ exports.showSecretPage = function buildSecretPage(req, resp, error_message) {
 
         resp.end(page_data); 
     }else{
-        login_page.buildLoginPage(req, resp, "Please Login again")
+        login_page.showLoginPage(req, resp, "Please Login again")
     }
 
 

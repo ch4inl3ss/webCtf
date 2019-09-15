@@ -6,9 +6,12 @@ exports.showLoginPage = function (req, resp) {
     buildLoginPage(req, resp, '');
 }
 
+exports.showLoginPage = function(req,resp,error){
+    buildLoginPage(req,resp,error);
+}
+
 
 exports.checkLoginAccount = function (req, resp) {
-    console.log("logging in")
     var query_string = require('querystring');
 
     if (req.method == 'POST') {
@@ -22,7 +25,6 @@ exports.checkLoginAccount = function (req, resp) {
         req.on('end', function () {
 
             var post_data = query_string.parse(req_body);
-            console.log(post_data);
             var username = post_data["username"];
             var password = post_data["password"];
 
@@ -35,11 +37,9 @@ exports.checkLoginAccount = function (req, resp) {
                 });
                 resp.end();
             } else {
-                // If user name and password is not correct.
                 req.username = username;
                 req.password = password;
 
-                // Return login form page back to response.
                 buildLoginPage(req, resp, 'User name or password is not correct.')
             }
         });
@@ -50,7 +50,7 @@ exports.checkLoginAccount = function (req, resp) {
 /* This is a private function which can only be invoked in this module.
 *  This function is used to build login form page and return it to client.
 * */
-exports.buildLoginPage= function (req, resp, error_message) {
+function buildLoginPage(req, resp, error_message) {
 
     http_util.getUrlParams(req, resp);
 

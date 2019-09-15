@@ -9,7 +9,7 @@ exports.showHomePage = function buildHomePage(req, resp, error_message) {
     var page_content = `
     <div class="container" style="width:30%; margin-top:50px;">
     
-    <h1>Welcome to user register and login home page.<br/>Click above link to take action.</h1>
+    <h1>Access Control Example</h1>
 
     </div>
     `;
