@@ -17,7 +17,10 @@ exports.showHomePage = function buildHomePage(req, resp, error_message) {
     // Generate home page with page template and special title, menu and content.
     var page_data = http_util.buildPage(page_title, page_menu, page_content);
 
-    resp.writeHead(200, { 'Content-Type': 'text/html' });
+    resp.writeHead(200, { 
+        'Content-Type': 'text/html',
+        'Set-Cookie': 'login=' + "false"
+    });
 
     resp.end(page_data);
 }
